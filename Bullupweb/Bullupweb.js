@@ -164,25 +164,3 @@ function move11(target){
     $(".bullup_map_america").css({width:"40px",height:"40px","z-index":"1",});
     $(".bullup_map_china").css({width:"40px",height:"40px","z-index":"1",});
   });
-    
-  //    var time = new Date().getTime();
-  //    var newData = parseInt(time/1000/3600/24);
-  //    var a = returnCitySN.cip;
-  //    var increase_uv = 0;
-  //    if(localStorage.bullup_day == undefined && localStorage.bullup_day != newData){
-  //          localStorage.bullup_day = newData;
-  //          increase_uv = 1;
-  //    }
-  //    var bullup_web = "ip="+ a +"&acountry=中国&province=山东&city=济南&time="+time+"&bullup_day="+newData+"&increase_uv="+increase_uv;     
-  //    console.log(bullup_web);
-  //    $.ajax({
-  //     type: "POST",
-  //     url: "http://18.221.98.48:3002",
-  //     data: bullup_web,
-  //     success: function(msg){
-  //       console.log("ok");
-  //       if(localStorage.bullup_day == undefined && localStorage.bullup_day != newData){
-
-  //     }
-  //   }
-  //  });

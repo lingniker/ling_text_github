@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -344,7 +344,6 @@
       <div class="layer_content"><p>程序猿正在玩命开发中┌(￣◇￣)┘</p><button class="closs_layer">关闭</button></div>
     </div>
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script> 
     <script type="text/javascript" src="./Bullupweb.js"></script>
     <script src="./js/jquery.roundabout.min.js"></script>
     <script type="text/javascript">
@@ -418,6 +417,37 @@
                 //   $('.layer').hide();
                 // });
             });
+    </script>
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <script>
+        var time = new Date().getTime();
+        var newData = parseInt(time/1000/3600/24);
+        if(undefined == window.returnCitySN ){
+          var a = "127.0.0.1";
+        }else{
+          var a = returnCitySN.cip;
+        }       
+        var increase_uv = 0;
+        if(localStorage.bullup_day == undefined){
+              localStorage.bullup_day = newData;
+              increase_uv = 2;
+        }else if(localStorage.bullup_day != newData){
+              localStorage.bullup_day = newData;
+              increase_uv = 1;
+        }
+        var bullup_web = "ip="+ a +"&acountry=中国&province=山东&city=济南&time="+time+"&bullup_day="+newData+"&increase_uv="+increase_uv;     
+        console.log(bullup_web);
+        $.ajax({
+          type: "POST",
+          url: "http://192.168.2.176:3003",
+          data: bullup_web,
+          success: function(msg){
+            console.log("ok");
+            if(localStorage.bullup_day == undefined && localStorage.bullup_day != newData){
+
+          }
+        }
+      });
     </script>
 </body>
 </html>
